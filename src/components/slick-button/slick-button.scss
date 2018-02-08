@@ -1,0 +1,49 @@
+:host {
+  --color: var(--sl-button-color, indianred);
+  --color-secondary: var(--sl-button-color-secondary, #fff);
+  --button-width: var(--sl-button-width, auto);
+  --padding: 1.75rem;
+  --transition: 300ms ease;
+
+  display: inline-block;
+}
+
+button {
+  background: transparent;
+  border: 1.5px solid var(--color); // todo - investigate why different margin sizes result in little gap
+  cursor: inherit;
+  display: inline-block;
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--color);
+  overflow-x: hidden;
+  padding: var(--padding);
+  position: relative;
+  transition: color var(--transition);
+  width: var(--button-width);
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color);
+  z-index: -1;
+  transform: translateX(-100%);
+  transition: transform var(--transition);
+}
+
+:host(:hover) {
+  cursor: pointer;
+
+  button {
+    color: var(--color-secondary);
+  }
+  .slider {
+    transform: translateX(0);
+  }
+}
+
+
