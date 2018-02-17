@@ -17,6 +17,11 @@
     .button-container slick-button {
       --sl-button-width: 100%;
     }
+
+    .button-container slick-button + slick-button {
+      --sl-button-width: 100%;
+      margin-top: 1rem;
+    }
     .blue-button {
       --sl-button-color: steelblue;
     }
@@ -36,7 +41,7 @@
       <slick-button>Slick Button</slick-button>
       <slick-button class="blue-button">cool blue button</slick-button>
       <slick-button class="psychadelic">psychadelic button</slick-button>
-
+      <slick-button disabled>disabled button</slick-button>
     </div>
   </div>
 

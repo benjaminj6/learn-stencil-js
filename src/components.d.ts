@@ -29,7 +29,7 @@ declare global {
   }
   namespace JSXElements {
     export interface SlickButtonAttributes extends HTMLAttributes {
-      
+      disabled?: boolean;
     }
   }
 }

@@ -8,13 +8,15 @@ type Style = HTMLElement["style"];
   shadow: true
 })
 export class MyComponent {
+  @Prop() disabled: boolean;
+
   handleClick(event: UIEvent) {
     console.log('click!', event);
   }
 
   render() {
     return (
-      <button onClick={(event: UIEvent) => this.handleClick(event)}>
+      <button disabled={this.disabled} onClick={(event: UIEvent) => this.handleClick(event)}>
         <span class="slider" />
         <span>
           <slot />

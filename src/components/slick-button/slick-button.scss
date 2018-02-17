@@ -1,17 +1,36 @@
 :host {
-  --color: var(--sl-button-color, indianred);
+  --color: var(--sl-button-color, #333);
   --color-secondary: var(--sl-button-color-secondary, #fff);
   --button-width: var(--sl-button-width, auto);
   --padding: 1.75rem;
-  --transition: 300ms ease;
+  --transition: 350ms ease;
 
   display: inline-block;
+
+  &:host([disabled]) {
+    --color: #999;
+    cursor: not-allowed;
+  }
+
+  // only allow hover states if button is valid
+  &:host(:hover:not([disabled])) {
+    cursor: pointer;
+
+    button {
+      color: var(--color-secondary);
+    }
+
+    .slider {
+      transform: translateX(0);
+    }
+  }
 }
 
 button {
   background: transparent;
   border: 1.5px solid var(--color); // todo - investigate why different margin sizes result in little gap
   cursor: inherit;
+  // border-radius: 2px;
   display: inline-block;
   font-size: 1.5rem;
   margin: 0;
@@ -34,16 +53,3 @@ button {
   transform: translateX(-100%);
   transition: transform var(--transition);
 }
-
-:host(:hover) {
-  cursor: pointer;
-
-  button {
-    color: var(--color-secondary);
-  }
-  .slider {
-    transform: translateX(0);
-  }
-}
-
-
