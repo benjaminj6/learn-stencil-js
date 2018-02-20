@@ -2,7 +2,7 @@ exports.config = {
   namespace: 'mycomponent',
   generateDistribution: true,
   bundles: [
-    { components: ['slick-button'] }
+    { components: ['slick-button', 'slick-multiselect', 'slick-multiselect-option'] }
   ]
 };
 

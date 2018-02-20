@@ -1,0 +1,37 @@
+:host {
+  --border: var(--slick-ms-border, #999);
+  --border-active: var(--slick-ms-border-active, indianred);
+
+  display: inline-block;
+}
+
+:host(:not([disabled])) {
+  &:host(:focus-within),
+  &:host(:hover) {
+    div {
+      border-color: var(--border-active);
+    }
+  }
+}
+
+:host([disabled]) {
+  div {
+    position: relative;
+  }
+
+  .disabled-overlay {
+    background: rgba(#999, 0.2);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    cursor: not-allowed;
+  }
+}
+
+div {
+  padding: 1rem;
+  border-radius: 2px;
+  border: 2px solid var(--border);
+}

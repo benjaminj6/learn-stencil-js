@@ -34,4 +34,66 @@ declare global {
   }
 }
 
+
+import {
+  SlickMultiSelectOption as SlickMultiselectOption
+} from './components/slick-multiselect-option/slick-multiselect-option';
+
+declare global {
+  interface HTMLSlickMultiselectOptionElement extends SlickMultiselectOption, HTMLElement {
+  }
+  var HTMLSlickMultiselectOptionElement: {
+    prototype: HTMLSlickMultiselectOptionElement;
+    new (): HTMLSlickMultiselectOptionElement;
+  };
+  interface HTMLElementTagNameMap {
+    "slick-multiselect-option": HTMLSlickMultiselectOptionElement;
+  }
+  interface ElementTagNameMap {
+    "slick-multiselect-option": HTMLSlickMultiselectOptionElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "slick-multiselect-option": JSXElements.SlickMultiselectOptionAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface SlickMultiselectOptionAttributes extends HTMLAttributes {
+      id?: string;
+      name?: string;
+      value?: string;
+    }
+  }
+}
+
+
+import {
+  SlickMultiSelect as SlickMultiselect
+} from './components/slick-multiselect/slick-multiselect';
+
+declare global {
+  interface HTMLSlickMultiselectElement extends SlickMultiselect, HTMLElement {
+  }
+  var HTMLSlickMultiselectElement: {
+    prototype: HTMLSlickMultiselectElement;
+    new (): HTMLSlickMultiselectElement;
+  };
+  interface HTMLElementTagNameMap {
+    "slick-multiselect": HTMLSlickMultiselectElement;
+  }
+  interface ElementTagNameMap {
+    "slick-multiselect": HTMLSlickMultiselectElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "slick-multiselect": JSXElements.SlickMultiselectAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface SlickMultiselectAttributes extends HTMLAttributes {
+      name?: string;
+    }
+  }
+}
+
 declare global { namespace JSX { interface StencilJSX {} } }

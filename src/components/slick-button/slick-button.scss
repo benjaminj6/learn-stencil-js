@@ -2,7 +2,7 @@
   --color: var(--sl-button-color, #333);
   --color-secondary: var(--sl-button-color-secondary, #fff);
   --button-width: var(--sl-button-width, auto);
-  --padding: 1.75rem;
+  --padding: 1.5rem;
   --transition: 350ms ease;
 
   display: inline-block;
@@ -17,39 +17,33 @@
     cursor: pointer;
 
     button {
+      background: var(--color);
       color: var(--color-secondary);
     }
+  }
 
-    .slider {
-      transform: translateX(0);
+  &:host(:focus-within),
+  &:host(:focus) {
+    outline: none;
+
+    button, button:focus {
+      outline: var(--focus-outline-color, -webkit-focus-ring-color) solid 2px;
+      outline-offset: 2px;
     }
   }
 }
 
 button {
   background: transparent;
-  border: 1.5px solid var(--color); // todo - investigate why different margin sizes result in little gap
+  border: 2px solid var(--color);
+  border-radius: 2px;
   cursor: inherit;
-  // border-radius: 2px;
   display: inline-block;
   font-size: 1.5rem;
   margin: 0;
   color: var(--color);
-  overflow-x: hidden;
   padding: var(--padding);
   position: relative;
-  transition: color var(--transition);
+  transition: color var(--transition), background var(--transition);
   width: var(--button-width);
-}
-
-.slider {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: var(--color);
-  z-index: -1;
-  transform: translateX(-100%);
-  transition: transform var(--transition);
 }

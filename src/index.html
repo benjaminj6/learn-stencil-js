@@ -8,6 +8,15 @@
   <script src="/build/mycomponent.js"></script>
 
   <style>
+    :root {
+      --focus-outline-color: dodgerblue;
+    }
+
+    [class*="-container"] {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
     .button-container {
       display: flex;
       flex-direction: column;
@@ -18,10 +27,11 @@
       --sl-button-width: 100%;
     }
 
-    .button-container slick-button + slick-button {
+    .button-container slick-button+slick-button {
       --sl-button-width: 100%;
       margin-top: 1rem;
     }
+
     .blue-button {
       --sl-button-color: steelblue;
     }
@@ -34,17 +44,28 @@
 </head>
 
 <body>
-  <div>
-
-    <div class="button-container">
-
-      <slick-button>Slick Button</slick-button>
-      <slick-button class="blue-button">cool blue button</slick-button>
-      <slick-button class="psychadelic">psychadelic button</slick-button>
-      <slick-button disabled>disabled button</slick-button>
-    </div>
+  <div class="button-container">
+    <slick-button>Slick Button</slick-button>
+    <slick-button class="blue-button">cool blue button</slick-button>
+    <slick-button class="psychadelic">psychadelic button</slick-button>
+    <slick-button disabled>disabled button</slick-button>
   </div>
 
+  <div class="multiselect-container">
+    <h3>basic multiselect</h3>
+    <slick-multiselect onchange="console.log(event.detail)">
+      <slick-multiselect-option id="yay" value="yay">yay</slick-multiselect-option>
+      <slick-multiselect-option id="nay" value="nay">nay</slick-multiselect-option>
+      <slick-multiselect-option id="meh" value="meh">meh</slick-multiselect-option>
+    </slick-multiselect>
+
+    <h3>disabled multiselect</h3>
+    <slick-multiselect onchange="console.log(event.detail)" disabled>
+      <slick-multiselect-option id="yay" value="yay">yay</slick-multiselect-option>
+      <slick-multiselect-option id="nay" value="nay">nay</slick-multiselect-option>
+      <slick-multiselect-option id="meh" value="meh">meh</slick-multiselect-option>
+    </slick-multiselect>
+  </div>
 </body>
 
 </html>
